@@ -1,10 +1,15 @@
+import { ThemeContext, themes } from "../context/themeContext";
+import { useContext } from "react";
+
 const Card = ({ children, style }) => {
+  const { theme } = useContext(ThemeContext);
   return (
-    <div className="card">
-      <div className="card-container" style={style}>
-        {children}
-      </div>
+    <div className="card" style={{ backgroundColor: theme.background, color: theme.foreground }}>
+    <div className="card-container" style={style}>
+      {children}
     </div>
+  </div>
+
   );
 };
 
